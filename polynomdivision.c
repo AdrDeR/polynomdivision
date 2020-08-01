@@ -21,20 +21,20 @@ void main()
 
  //int poly[6], q[6];  // so würde es statisch aussehen .... nicht so flexibel
 
- int m, r, i;
+ int n, r, i;
 
  printf("\t POLYNOMDIVISION");
  printf("\n Enter the highest degree of the equation: ");
  
- scanf("%d",&m);  // Eigabe 
+ scanf("%d",&n);  // Einabe 
 
  // Arraygrößen anpassen auf Polynomgrad
- poly = realloc(poly, sizeof(int[m])); 
- q    = realloc(q, sizeof(int[m]));    
+ poly = realloc(poly, sizeof(int[n])); 
+ q    = realloc(q, sizeof(int[n]));    
 
- for(i=0;i<=m;i++)
+ for(i=0;i<=n;i++)
 	{
- 	 printf("\n Coefficient x[%d] = ", m-i);
+ 	 printf("\n Input the coefficient x[%d] = ", n-i);
  	 scanf("%d",&poly[i]);
 	}
 
@@ -42,22 +42,22 @@ void main()
  scanf("%d",&r);
 
  q[0] = poly[0];
- for(i=1;i<=m;i++)
+ for(i=1;i<=n;i++)
 	{
 	 q[i] = (q[i-1]*r)+poly[i];
 	}
 
- printf("\n Coefficients of quotient are: \n");
+ printf("\n The quotient coefficients are: \n");
 
- for(i=0;i<m;i++)
+ for(i=0;i<n;i++)
 	{
 	 printf("\t%d",q[i]);
 	}
 
- printf("\n Remainder is: %d", q[m]);
+ printf("\n The remainder is: %d", q[n]);
  printf("\n");
  
- free (poly);
+ free (poly); // free the memory ...
  free (q);
 
 }
