@@ -4,27 +4,28 @@
 // Author:  Adriano De Rosa
 // Created: December 23rd, 2002
 // Updated: August 1st, 2020: conio.h removed for usage on linux systems. Dynamic array added
-//          
+// Updated: December       
 //
 //////////////////////////////////////////////////////////////////////////
 
-#include<stdio.h>   // Required for printf, scanf
-#include<stdlib.h>  // Required for malloc, free, realloc
+#include<stdio.h>   // This is required for printf, scanf
+#include<stdlib.h>  // This is required for malloc, free, realloc
+#include<time.h>    // This is required for malloc, free, realloc
 
-//#include<ncurses.h>
 
+////////////////////////////////////////////////////////////////////
 void main()
 {
-                
+     
  int* poly= malloc(sizeof(int[10]));  // Dynamisches array für polynom koeffizienten
  int* q   = malloc(sizeof(int[10]));  // 
 
- //int poly[6], q[6];  // so würde es statisch aussehen .... nicht so flexibel
+ //int poly[5], q[5];                 // so würde es statisch aussehen, z.B. für olynom mit Grad 5 .... nicht so flexibel
 
  int n, r, i;
 
  printf("\t POLYNOMDIVISION");
- printf("\n Enter the highest degree of the equation: ");
+ printf("\n Please enter the degree of the equation: ");
  
  scanf("%d",&n);  // Einabe 
 
@@ -40,6 +41,10 @@ void main()
 
  printf("\n Enter the value of constant in (x-r) : ");
  scanf("%d",&r);
+
+ //////////////////////////////////////////////////////////////////////////////
+ clock_t begin = clock(); // Start time measurement from here on (count clocks)
+ //////////////////////////////////////////////////////////////////////////////
 
  q[0] = poly[0];
  for(i=1;i<=n;i++)
@@ -59,6 +64,12 @@ void main()
  
  free (poly); // free the memory ...
  free (q);
+
+ /////////////////////////////////////////////////////////////
+ clock_t end = clock(); // Save the execution clocks */
+ double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+ printf("Execution time: %f ms\n",time_spent*1000);
+ //////////////////////////////////////////////////////////////
 
 }
 
