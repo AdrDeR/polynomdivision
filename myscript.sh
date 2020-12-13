@@ -1,8 +1,6 @@
-
-
 #!/bin/bash
+echo “Make c-progam 'time_measurement'“
 
-echo “Compile the polynomial division program“
-
-gcc polynomdivision.c -o polynomdivision
+gcc time_measurement.c -o time_measurement -lm  # ohne Optimierung
+# gcc time_measurement.c -o time_measurement -lm -O2   # mit Optimierung
 
