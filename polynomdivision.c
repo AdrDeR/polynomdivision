@@ -4,7 +4,7 @@
 // Author:  Adriano De Rosa
 // Created: December 23rd, 2002
 // Updated: August 1st, 2020: conio.h removed for usage on linux systems. Dynamic array added
-// Updated: December       
+// Updated: December  13th, 2020: Time measurment added with time.h librarx      
 //
 //////////////////////////////////////////////////////////////////////////
 
